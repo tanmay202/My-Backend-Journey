@@ -7,3 +7,6 @@ def myView(reqest):
 
 def Suburl(reques):
     return HttpResponse("This is sub url")
+
+def HomePage(reques):
+    return HttpResponse("<h1>This is the home page</h1>")
