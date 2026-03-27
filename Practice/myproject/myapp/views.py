@@ -3,5 +3,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def PractiseView(req):
+def PracticeView(req):
     return HttpResponse("Hello") 
