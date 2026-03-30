@@ -4,4 +4,5 @@ urlpatterns = [
 
     path('suburl/',views.Suburl),
     path('',views.HomePage),
+    path('temp/',views.myView)
 ]

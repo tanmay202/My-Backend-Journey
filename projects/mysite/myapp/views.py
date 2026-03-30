@@ -4,13 +4,18 @@ from .models import Item
 # Create your views here.
 
 def myView(reqest):
-    return HttpResponse("Hello This is Me,Tanmay")
+    return render(reqest,"myapp/index.html")
 
 def Suburl(reques):
     return HttpResponse("This is sub url")
 
 def HomePage(reques):
     return HttpResponse("<h1>This is the home page</h1>")
+
+
 def DataBase(request):
     my_item=Item.objects.all()
-    return HttpResponse(my_item)
+    context={
+        'my_item':my_item
+    }
+    return render(request,'myapp/index.html',context)
