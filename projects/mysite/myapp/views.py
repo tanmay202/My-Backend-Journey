@@ -19,3 +19,10 @@ def DataBase(request):
         'my_item':my_item
     }
     return render(request,'myapp/index.html',context)
+
+def detail(request,id):
+    item=Item.objects.get(id=id)
+    context={
+        'item':item
+    }
+    return render(request,'myapp/detail.html',context)
