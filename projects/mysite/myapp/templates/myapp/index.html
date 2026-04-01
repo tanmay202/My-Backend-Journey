@@ -1,17 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is a template !</h1>
+{% extends 'myapp/base.html' %}
+
+{% block title %}Menu{% endblock %}
+
+{% block content %}
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
     {% for item in my_item %}
-    <a href="/db/{{item.id}}">
-        <p>{{item}}</p>
+    <a href="{% url 'detail' item.id %}"
+       class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-4 block">
+
+        <div class="h-40 bg-gray-200 rounded-xl mb-4 flex items-center justify-center">
+            <span class="text-gray-500">🍽️ Image</span>
+        </div>
+
+        <h2 class="text-lg font-semibold text-gray-800">
+            {{ item }}
+        </h2>
+
+        <div class="mt-4">
+            <span class="inline-block bg-orange-500 text-white px-4 py-2 rounded-lg text-sm">
+                View Details →
+            </span>
+        </div>
+
     </a>
     {% endfor %}
-    {{ my_item }}
-</body>
-</html>
+
+</div>
+
+{% endblock %}

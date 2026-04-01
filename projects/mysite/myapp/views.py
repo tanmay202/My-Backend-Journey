@@ -1,6 +1,6 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Item
+from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
 def myView(reqest):
@@ -20,9 +20,20 @@ def DataBase(request):
     }
     return render(request,'myapp/index.html',context)
 
-def detail(request,id):
-    item=Item.objects.get(id=id)
-    context={
-        'item':item
+# def detail(request,id):
+#     item=Item.objects.get(id=id)
+
+  
+
+#     context={
+#         'item':item
+#     }
+#     return render(request,'myapp/detail.html',context)
+
+def detail(request, id):
+    item = get_object_or_404(Item, id=id)
+
+    context = {
+        'item': item
     }
-    return render(request,'myapp/detail.html',context)
+    return render(request, 'myapp/detail.html', context)

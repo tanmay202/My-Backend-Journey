@@ -6,5 +6,5 @@ urlpatterns = [
     path('',views.HomePage),
     path('temp/',views.myView),
     path('db/',views.DataBase),
-    path('db/<int:id>',views.detail),
+    path('db/<int:id>',views.detail,name='detail'),
 ]

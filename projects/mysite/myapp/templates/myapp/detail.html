@@ -1,14 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is detailed of {{item.item_name}}</h1>
-    <h2>{{item.item_desc}} </h2>
-    <h2>Price: {{item.item_price}} Rs. </h2>
-    <h2>Amount: {{item.item_quantity}} </h2>
-</body>
-</html>
+{% extends 'myapp/base.html' %}
+
+{% block title %}Details{% endblock %}
+
+{% block content %}
+
+<div class="bg-white p-6 rounded-2xl shadow-md">
+
+    <h1 class="text-2xl font-bold text-gray-800 mb-2">
+        {{ item.item_name }}
+    </h1>
+
+    <p class="text-gray-600 mb-4">
+        {{ item.item_desc }}
+    </p>
+
+    <p class="text-lg font-semibold text-orange-500">
+        ₹ {{ item.item_price }}
+    </p>
+
+    <p class="text-sm text-gray-500 mt-2">
+        Available: {{ item.item_quantity }}
+    </p>
+
+</div>
+
+{% endblock %}
