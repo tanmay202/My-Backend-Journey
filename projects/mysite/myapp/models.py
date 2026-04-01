@@ -7,6 +7,7 @@ class Item(models.Model):
     item_desc=models.CharField(max_length=200)
     item_price=models.FloatField()
     item_quantity=models.IntegerField()
+    item_img=models.CharField(max_length=1000,default='🍽️')
 
     def __str__(self):
         return self.item_name #used to display the name on the page otherwise it will display only item object(1),item object(2) etc....
