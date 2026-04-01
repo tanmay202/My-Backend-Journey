@@ -4,23 +4,46 @@
 
 {% block content %}
 
-<div class="bg-white p-6 rounded-2xl shadow-md">
+<div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
 
-    <h1 class="text-2xl font-bold text-gray-800 mb-2">
-        {{ item.item_name }}
-    </h1>
+    <!-- Image Section -->
+    <div class="w-full h-64 bg-gray-100">
+        <img src="{{ item.item_img }}" 
+             alt="{{ item.item_name }}"
+             class="w-full h-full object-cover">
+    </div>
 
-    <p class="text-gray-600 mb-4">
-        {{ item.item_desc }}
-    </p>
+    <!-- Content Section -->
+    <div class="p-6">
 
-    <p class="text-lg font-semibold text-orange-500">
-        ₹ {{ item.item_price }}
-    </p>
+        <h1 class="text-3xl font-bold text-gray-800 mb-3">
+            {{ item.item_name }}
+        </h1>
 
-    <p class="text-sm text-gray-500 mt-2">
-        Available: {{ item.item_quantity }}
-    </p>
+        <p class="text-gray-600 mb-4 leading-relaxed">
+            {{ item.item_desc }}
+        </p>
+
+        <div class="flex items-center justify-between mt-4">
+
+            <span class="text-2xl font-semibold text-orange-500">
+                ₹ {{ item.item_price }}
+            </span>
+
+            <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                Stock: {{ item.item_quantity }}
+            </span>
+
+        </div>
+
+        <!-- Optional Button -->
+        <div class="mt-6">
+            <button class="w-full bg-orange-500 text-white py-2 rounded-xl hover:bg-orange-600 transition">
+                Buy Now
+            </button>
+        </div>
+
+    </div>
 
 </div>
 
