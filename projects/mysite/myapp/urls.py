@@ -7,4 +7,5 @@ urlpatterns = [
     path('temp/',views.myView),
     path('db/',views.DataBase),
     path('db/<int:id>',views.detail,name='detail'),
+    path('add/',views.create_item)
 ]

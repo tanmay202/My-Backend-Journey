@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from .models import Item
 from django.shortcuts import render, get_object_or_404
+from .forms import ItemForm
+
 # Create your views here.
 
 def myView(reqest):
@@ -37,3 +39,12 @@ def detail(request, id):
         'item': item
     }
     return render(request, 'myapp/detail.html', context)
+
+
+def create_item(request):
+    form=ItemForm()
+    context={
+        'form':form
+    }
+    return render(request,'myapp/item-form.html',context)
+
