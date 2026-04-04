@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from .models import Item
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .forms import ItemForm
 
 # Create your views here.
@@ -42,7 +42,14 @@ def detail(request, id):
 
 
 def create_item(request):
-    form=ItemForm()
+    if request.method=='POST':
+        form=ItemForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('db')
+    else:
+         form=ItemForm()
     context={
         'form':form
     }

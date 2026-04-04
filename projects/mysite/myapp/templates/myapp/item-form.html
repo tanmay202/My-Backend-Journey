@@ -1,6 +1,38 @@
-<h1>Add Item</h1> 
-<form method="POST"> 
-    {% csrf_token %} 
-    {{ form }} 
-    <button type="submit">Save</button> 
-</form>
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+<div class="bg-white shadow-lg rounded-xl p-6 max-w-lg mx-auto">
+    
+    <h1 class="text-2xl font-bold text-gray-700 mb-6 text-center">
+        ➕ Add Food Item
+    </h1>
+
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div>
+                <label class="block text-gray-600 font-semibold mb-1">
+                    {{ field.label }}
+                </label>
+
+                {{ field }}
+
+                {% if field.errors %}
+                    <p class="text-red-500 text-sm mt-1">
+                        {{ field.errors }}
+                    </p>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit"
+            class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition">
+            💾 Save Item
+        </button>
+    </form>
+
+</div>
+
+{% endblock %}
