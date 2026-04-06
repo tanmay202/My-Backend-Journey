@@ -39,21 +39,20 @@
         <!-- Action Buttons -->
         <div class="mt-6 flex gap-4">
 
-            <!-- Edit Form -->
-               <a class="w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 transition duration-200" href="{% url 'update_item' item.id %}"><button type="submit"
-                        >
-                    Edit
-                </button>
-                </a> 
+            <!-- Edit Button -->
+            <a href="{% url 'update_item' item.id %}" 
+               class="flex-1 text-center bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 transition duration-200">
+                Edit
+            </a>
 
-
-            <!-- Delete Form -->
+            <!-- Delete Button -->
+            <form method="POST" action="{% url 'delete_item' item.id %}" class="flex-1">
                 {% csrf_token %}
                 <button type="submit"
                         class="w-full bg-red-500 text-white py-2 rounded-xl hover:bg-red-600 transition duration-200">
                     Delete
                 </button>
-
+            </form>
 
         </div>
 

@@ -69,3 +69,12 @@ def update_item(request,id):
     }
 
     return render(request,'myapp/item-form.html',context)
+
+def delete_item(request, id):
+    item = get_object_or_404(Item, id=id)
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('db')
+
+    return render(request, 'myapp/itemdel.html', {'item': item})
