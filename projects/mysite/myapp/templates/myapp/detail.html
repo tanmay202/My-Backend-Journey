@@ -36,11 +36,25 @@
 
         </div>
 
-        <!-- Optional Button -->
-        <div class="mt-6">
-            <button class="w-full bg-orange-500 text-white py-2 rounded-xl hover:bg-orange-600 transition">
-                Buy Now
-            </button>
+        <!-- Action Buttons -->
+        <div class="mt-6 flex gap-4">
+
+            <!-- Edit Form -->
+               <a class="w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 transition duration-200" href="{% url 'update_item' item.id %}"><button type="submit"
+                        >
+                    Edit
+                </button>
+                </a> 
+
+
+            <!-- Delete Form -->
+                {% csrf_token %}
+                <button type="submit"
+                        class="w-full bg-red-500 text-white py-2 rounded-xl hover:bg-red-600 transition duration-200">
+                    Delete
+                </button>
+
+
         </div>
 
     </div>

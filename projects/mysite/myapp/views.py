@@ -55,3 +55,17 @@ def create_item(request):
     }
     return render(request,'myapp/item-form.html',context)
 
+
+#update item viwe:
+
+def update_item(request,id):
+    item = get_object_or_404(Item, id=id)
+    form=ItemForm(request.POST or None, instance=item)
+    if form.is_valid():
+            form.save()
+            return redirect('db')
+    context={
+        'form':form
+    }
+
+    return render(request,'myapp/item-form.html',context)
