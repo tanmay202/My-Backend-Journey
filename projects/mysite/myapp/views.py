@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from .models import Item
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import ItemForm
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def myView(reqest):
@@ -14,7 +14,7 @@ def Suburl(reques):
 def HomePage(reques):
     return HttpResponse("<h1>This is the home page</h1>")
 
-
+@login_required 
 def DataBase(request):
     my_item=Item.objects.all()
     context={

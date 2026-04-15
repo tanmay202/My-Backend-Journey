@@ -120,3 +120,4 @@ STATIC_URL = 'static/'
 
 
 LOGIN_REDIRECT_URL='db'
+LOGIN_URL='login'
