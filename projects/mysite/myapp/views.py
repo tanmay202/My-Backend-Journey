@@ -56,7 +56,7 @@ def create_item(request):
     return render(request,'myapp/item-form.html',context)
 
 
-#update item viwe:
+#update item view:
 
 def update_item(request,id):
     item = get_object_or_404(Item, id=id)
@@ -78,3 +78,4 @@ def delete_item(request, id):
         return redirect('db')
 
     return render(request, 'myapp/itemdel.html', {'item': item})
+
