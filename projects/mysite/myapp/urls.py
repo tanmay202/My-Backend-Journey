@@ -8,7 +8,7 @@ urlpatterns = [
     path('',views.HomePage),
     path('temp/',views.myView),
     path('db/',views.IndexView.as_view(),name='db'),
-    path('db/<int:id>',views.detail,name='detail'),
+    path('db/<int:pk>',views.FoodDetailView.as_view(),name='detail'),
     path('add/',views.create_item),
     path('db/update/<int:id>/',views.update_item,name='update_item'),
     path('delete/<int:id>',views.delete_item,name='delete_item')

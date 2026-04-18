@@ -5,6 +5,7 @@ from .forms import ItemForm
 from django.contrib.auth.decorators import login_required
 
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 # Create your views here.
 
 def myView(reqest):
@@ -37,13 +38,23 @@ class IndexView(ListView):
 #     }
 #     return render(request,'myapp/detail.html',context)
 
-def detail(request, id):
-    item = get_object_or_404(Item, id=id)
+# def detail(request, id):
+#     item = get_object_or_404(Item, id=id)
 
-    context = {
-        'item': item
-    }
-    return render(request, 'myapp/detail.html', context)
+#     context = {
+#         'item': item
+#     }
+#     return render(request, 'myapp/detail.html', context)
+
+
+
+
+class FoodDetailView(DetailView):
+    model=Item
+    template_name="myapp/detail.html"
+    context_object_name='item'
+
+    
 
 
 def create_item(request):
