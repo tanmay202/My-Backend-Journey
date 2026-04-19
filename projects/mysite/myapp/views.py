@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 # Create your views here.
 
 def myView(reqest):
@@ -70,6 +71,11 @@ def create_item(request):
         'form':form
     }
     return render(request,'myapp/item-form.html',context)
+
+
+class createView(CreateView):
+    pass
+
 
 
 #update item view:
