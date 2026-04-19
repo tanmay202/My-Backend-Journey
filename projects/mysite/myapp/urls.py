@@ -9,7 +9,7 @@ urlpatterns = [
     path('temp/',views.myView),
     path('db/',views.IndexView.as_view(),name='db'),
     path('db/<int:pk>',views.FoodDetailView.as_view(),name='detail'),
-    path('add/',views.create_item),
+    path('add/',views.createView.as_view()),
     path('db/update/<int:id>/',views.update_item,name='update_item'),
     path('delete/<int:id>',views.delete_item,name='delete_item')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

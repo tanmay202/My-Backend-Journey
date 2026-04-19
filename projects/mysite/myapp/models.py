@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 
 class Item(models.Model):
@@ -11,4 +11,7 @@ class Item(models.Model):
 
     def __str__(self):
         return self.item_name #used to display the name on the page otherwise it will display only item object(1),item object(2) etc....
+    
+    def get_absolute_url(self):
+        return reverse('db')
 

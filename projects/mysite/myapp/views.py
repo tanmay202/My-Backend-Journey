@@ -74,7 +74,8 @@ def create_item(request):
 
 
 class createView(CreateView):
-    pass
+    model=Item
+    fields=['item_name','item_desc','item_img','item_price','item_quantity']
 
 
 
