@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView,UpdateView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
+from django.urls import reverse_lazy
 # Create your views here.
 
 def myView(reqest):
@@ -110,3 +111,7 @@ def delete_item(request, id):
 
     return render(request, 'myapp/itemdel.html', {'item': item})
 
+
+class Item_DeleteView(DeleteView):
+    model=Item
+    success_url=reverse_lazy("db")
