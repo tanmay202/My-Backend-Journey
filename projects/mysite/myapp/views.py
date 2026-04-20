@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView,UpdateView
 # Create your views here.
 
 def myView(reqest):
@@ -92,6 +92,14 @@ def update_item(request,id):
     }
 
     return render(request,'myapp/item-form.html',context)
+
+
+class itemUpdateView(UpdateView):
+    model=Item
+    fields=['item_name','item_desc','item_img','item_price','item_quantity']
+    template_name_suffix='_update_form'
+
+
 
 def delete_item(request, id):
     item = get_object_or_404(Item, id=id)
