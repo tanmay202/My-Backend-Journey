@@ -31,6 +31,7 @@ class IndexView(ListView):
     model=Item
     template_name="myapp/index.html"
     context_object_name='my_item'
+    paginate_by = 6
 
 
 # def detail(request,id):
