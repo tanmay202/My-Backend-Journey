@@ -16,18 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from rest_framework import routers
-from movies.views import MovieViewSet,ActionViewSet
-
-router = routers.SimpleRouter()
-
-router.register('movies', MovieViewSet)
-router.register('action', ActionViewSet, basename='action-movies')
 
 urlpatterns = [
-    path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('myapp/',include('myapp.urls'))
 ]
-
-
 
